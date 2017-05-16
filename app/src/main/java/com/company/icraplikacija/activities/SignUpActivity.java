@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -37,18 +36,17 @@ public class SignUpActivity extends AppCompatActivity{
 
     }
 
-    private void userSignUp() {
+    public void userSignUp(View view) {
 
         //defining a progress dialog to show while signing up
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Signing Up...");
+        progressDialog.setMessage("Registracija...");
         progressDialog.show();
 
         //getting the user values
         String name = editTextName.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
-
 
         //building retrofit object
         Retrofit retrofit = new Retrofit.Builder()
@@ -73,7 +71,6 @@ public class SignUpActivity extends AppCompatActivity{
         call.enqueue(new Callback<Result>() {
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
-                //hiding progress dialog
                 progressDialog.dismiss();
 
                 //displaying the message from the response as toast
@@ -94,9 +91,7 @@ public class SignUpActivity extends AppCompatActivity{
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+
     }
 
-    public void signUp(View view) {
-        userSignUp();
-    }
 }

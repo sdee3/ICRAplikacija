@@ -51,7 +51,7 @@ public class ProfileFragment extends Fragment{
 
         editTextName.setText(user.getName());
         editTextEmail.setText(user.getEmail());
-        editTextPassword.setText("0000");
+        editTextPassword.setText("");
 
     }
 

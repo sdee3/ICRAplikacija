@@ -37,7 +37,7 @@ public class SignInActivity extends AppCompatActivity{
 
     private void userSignIn() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Signing Up...");
+        progressDialog.setMessage("Logovanje...");
         progressDialog.show();
 
         String email = editTextEmail.getText().toString().trim();
@@ -62,7 +62,7 @@ public class SignInActivity extends AppCompatActivity{
                     SharedPrefManager.getInstance(getApplicationContext()).userLogin(response.body().getUser());
                     startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 } else {
-                    Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Neispravni podaci.", Toast.LENGTH_LONG).show();
                 }
             }
 
