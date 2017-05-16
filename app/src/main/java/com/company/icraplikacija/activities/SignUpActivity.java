@@ -1,6 +1,7 @@
 package com.company.icraplikacija.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,7 +11,8 @@ import android.widget.Toast;
 
 import com.company.icraplikacija.R;
 import com.company.icraplikacija.api.APIService;
-import com.company.icraplikacija.api.APIURL;
+import com.company.icraplikacija.api.APIUrl;
+import com.company.icraplikacija.helper.SharedPrefManager;
 import com.company.icraplikacija.models.Result;
 import com.company.icraplikacija.models.User;
 
@@ -36,16 +38,16 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
-        buttonSignUp.setOnClickListener(this);
     }
 
-    private void userSignUp(){
+    private void userSignUp() {
 
         //defining a progress dialog to show while signing up
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Signing Up...");
         progressDialog.show();
 
+        //getting the user values
         String name = editTextName.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
@@ -53,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         //building retrofit object
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APIURL.BASE_URL)
+                .baseUrl(APIUrl.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -79,6 +81,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                 //displaying the message from the response as toast
                 Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+
+                //if there is no error
+                if (!response.body().getError()) {
+                    //starting profile activity
+                    finish();
+                    SharedPrefManager.getInstance(getApplicationContext()).userLogin(response.body().getUser());
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                }
             }
 
             @Override
@@ -87,7 +97,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
     }
 
     @Override

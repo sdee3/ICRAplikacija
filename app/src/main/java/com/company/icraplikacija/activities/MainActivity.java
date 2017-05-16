@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.company.icraplikacija.R;
 import com.company.icraplikacija.activities.SignInActivity;
 import com.company.icraplikacija.api.APIService;
+import com.company.icraplikacija.helper.SharedPrefManager;
 import com.company.icraplikacija.models.Result;
 import com.company.icraplikacija.models.User;
 
@@ -27,6 +28,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //if user is already logged in opening the profile activity
+        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(this, HomeActivity.class));
+        }
 
         buttonSignIn = (Button) findViewById(R.id.buttonSignIn);
         buttonSignUp = (Button) findViewById(R.id.buttonSignUp);
