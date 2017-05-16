@@ -21,10 +21,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
+public class SignInActivity extends AppCompatActivity{
 
     private EditText editTextEmail, editTextPassword;
-    private Button buttonSignIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +33,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
-        buttonSignIn = (Button) findViewById(R.id.buttonSignIn);
-
-        buttonSignIn.setOnClickListener(this);
     }
 
     private void userSignIn() {
@@ -78,10 +74,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         });
     }
 
-    @Override
-    public void onClick(View view) {
-        if (view == buttonSignIn) {
-            userSignIn();
-        }
+    public void signIn(View view) {
+        userSignIn();
     }
 }

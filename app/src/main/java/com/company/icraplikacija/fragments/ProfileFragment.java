@@ -28,9 +28,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ProfileFragment extends Fragment implements View.OnClickListener {
+public class ProfileFragment extends Fragment{
 
-    private Button buttonUpdate;
     private EditText editTextName, editTextEmail, editTextPassword;
 
     @Nullable
@@ -44,13 +43,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Profile");
 
-        buttonUpdate = (Button) view.findViewById(R.id.buttonUpdate);
-
         editTextName = (EditText) view.findViewById(R.id.editTextName);
         editTextEmail = (EditText) view.findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) view.findViewById(R.id.editTextPassword);
-
-        buttonUpdate.setOnClickListener(this);
 
         User user = SharedPrefManager.getInstance(getActivity()).getUser();
 
@@ -103,10 +98,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         });
     }
 
-    @Override
-    public void onClick(View view) {
-        if (view == buttonUpdate) {
-            updateUser();
-        }
+    public void updateProfile(View view) {
+        updateUser();
     }
+
 }
