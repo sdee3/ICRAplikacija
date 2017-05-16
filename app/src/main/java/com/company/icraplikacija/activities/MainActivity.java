@@ -1,13 +1,15 @@
-package com.company.icraplikacija;
+package com.company.icraplikacija.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SignInActivity extends AppCompatActivity {
+import com.company.icraplikacija.R;
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_main);
     }
 }
