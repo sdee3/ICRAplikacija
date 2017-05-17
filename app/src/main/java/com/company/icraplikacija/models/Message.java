@@ -2,13 +2,13 @@ package com.company.icraplikacija.models;
 
 public class Message {
     private int id;
-    private int from;
-    private int to;
+    private String from;
+    private String to;
     private String title;
     private String message;
     private String sent;
 
-    public Message(int id, int from, int to, String title, String message, String sent) {
+    public Message(int id, String from, String to, String title, String message, String sent) {
         this.id = id;
         this.from = from;
         this.to = to;
@@ -21,11 +21,11 @@ public class Message {
         return id;
     }
 
-    public int getFrom() {
+    public String getFrom() {
         return from;
     }
 
-    public int getTo() {
+    public String getTo() {
         return to;
     }
 
