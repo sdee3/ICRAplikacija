@@ -16,8 +16,6 @@ import com.company.icraplikacija.api.APIUrl;
 import com.company.icraplikacija.helper.MessageAdapter;
 import com.company.icraplikacija.helper.SharedPrefManager;
 import com.company.icraplikacija.models.Messages;
-import com.company.icraplikacija.models.Users;
-import com.company.icraplikacija.helper.UserAdapter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
