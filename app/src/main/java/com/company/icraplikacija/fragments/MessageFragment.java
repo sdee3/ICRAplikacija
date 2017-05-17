@@ -16,6 +16,8 @@ import com.company.icraplikacija.api.APIUrl;
 import com.company.icraplikacija.helper.MessageAdapter;
 import com.company.icraplikacija.helper.SharedPrefManager;
 import com.company.icraplikacija.models.Messages;
+import com.company.icraplikacija.models.Users;
+import com.company.icraplikacija.helper.UserAdapter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,7 +40,7 @@ public class MessageFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Messages");
+        getActivity().setTitle("Poruke");
 
         recyclerViewMessages = (RecyclerView) view.findViewById(R.id.recyclerViewMessages);
         recyclerViewMessages.setHasFixedSize(true);

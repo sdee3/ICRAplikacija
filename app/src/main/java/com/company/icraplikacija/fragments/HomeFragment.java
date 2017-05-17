@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Home");
+        getActivity().setTitle("Početna");
 
         recyclerViewUsers = (RecyclerView) view.findViewById(R.id.recyclerViewUsers);
         recyclerViewUsers.setHasFixedSize(true);

@@ -41,7 +41,7 @@ public class ProfileFragment extends Fragment{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Profile");
+        getActivity().setTitle("Profil");
 
         editTextName = (EditText) view.findViewById(R.id.editTextName);
         editTextEmail = (EditText) view.findViewById(R.id.editTextEmail);
