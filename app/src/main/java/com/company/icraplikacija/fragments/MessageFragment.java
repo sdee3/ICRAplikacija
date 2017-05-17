@@ -41,8 +41,8 @@ public class MessageFragment extends Fragment {
         getActivity().setTitle("Poruke");
 
         recyclerViewMessages = (RecyclerView) view.findViewById(R.id.recyclerViewMessages);
-        recyclerViewMessages.setHasFixedSize(true);
         recyclerViewMessages.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerViewMessages.setHasFixedSize(true);
 
 
         Retrofit retrofit = new Retrofit.Builder()
