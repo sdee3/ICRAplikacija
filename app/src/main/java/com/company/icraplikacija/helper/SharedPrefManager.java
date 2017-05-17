@@ -15,7 +15,6 @@ public class SharedPrefManager {
     private static final String KEY_USER_ID = "keyuserid";
     private static final String KEY_USER_NAME = "keyusername";
     private static final String KEY_USER_EMAIL = "keyuseremail";
-    private static final String KEY_USER_GENDER = "keyusergender";
 
     private SharedPrefManager(Context context) {
         mCtx = context;
